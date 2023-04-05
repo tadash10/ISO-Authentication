@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# Function to send email notification
+function send_login_notification {
+    local to="admin@example.com"
+    local from="noreply@example.com"
+    local subject="Login notification"
+    local message="User $username logged in from IP address $(hostname -I | awk '{print $1}') at $(date +"%Y-%m-%d %T")"
+    echo "$message" | mail -s "$subject" -r "$from" "$to"
+}
+
+#You can then source these functions in your main script as needed:
+
+bash
+
+source password_utils.sh
+source email_utils.sh
+
+# Use encrypt_password and decrypt_password functions to store and compare user passwords
+encrypted_password=$(encrypt_password "password123")
+if [[ $(decrypt_password "$encrypted_password") == "password123" ]]; then
+    echo "Password encryption and decryption working correctly"
+fi
+
+# Use send_login_notification function to send email notifications on successful logins
+echo "Welcome, $username!"
+send_login_notification
