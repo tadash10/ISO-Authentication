@@ -1,5 +1,14 @@
 #!/bin/bash
 
+################################################################################
+# NAME: iso-auth.sh
+#
+# DESCRIPTION: A high-level bash script for authentication and authorization 
+# using ISO standards. 
+#
+# DISCLAIMER: This script is for educational purposes only. Use at your own risk.
+#By : Tadash1
+
 # Define authorized users and their roles
 declare -A authorized_users=(
     ["admin"]="admin_password"
@@ -87,15 +96,5 @@ function main {
         # Insert main application logic here
         echo "Access granted! Main application logic goes here."
 
-        # Wait for user input
-        read -p "Press enter to continue, or type 'logout' to end session: " input
-        if [[ $input == "logout" ]]; then
-            logout_user
-            log_authentication_attempt
-            break
-        fi
-    done
-}
+        # Wait for user
 
-# Start the script
-main
