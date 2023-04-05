@@ -1,1 +1,21 @@
 
+# Ignore editor and IDE files
+*~
+*.swp
+*.swo
+*.bak
+*.tmp
+*.cache
+*.log
+.vscode/
+.idea/
+
+# Ignore generated files
+*.out
+*.o
+*.a
+*.so
+
+# Ignore build directories
+build/
+dist/
